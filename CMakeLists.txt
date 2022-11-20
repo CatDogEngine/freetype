@@ -450,6 +450,16 @@ if (NOT DISABLE_FORCE_DEBUG_POSTFIX)
   set(CMAKE_DEBUG_POSTFIX d)
 endif ()
 
+# Think it as MSVC.
+# Switch /MD to /MT.
+# https://stackoverflow.com/questions/14172856/compile-with-mt-instead-of-md-using-cmake
+if (WIN32)
+    add_compile_options(
+        $<$<CONFIG:>:/MT> #---------|
+        $<$<CONFIG:Debug>:/MTd> #---|-- Statically link the runtime libraries
+        $<$<CONFIG:Release>:/MT> #--|
+    )
+endif()
 
 add_library(freetype
   ${PUBLIC_HEADERS}
