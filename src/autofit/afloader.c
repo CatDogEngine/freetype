@@ -4,7 +4,7 @@
  *
  *   Auto-fitter glyph loading routines (body).
  *
- * Copyright (C) 2003-2022 by
+ * Copyright (C) 2003-2023 by
  * David Turner, Robert Wilhelm, and Werner Lemberg.
  *
  * This file is part of the FreeType project, and may only be used,
@@ -216,7 +216,7 @@
     FT_Error  error;
 
     FT_Size           size          = face->size;
-    FT_Size_Internal  size_internal = NULL;
+    FT_Size_Internal  size_internal = size->internal;
     FT_GlyphSlot      slot          = face->glyph;
     FT_Slot_Internal  slot_internal = slot->internal;
     FT_GlyphLoader    gloader       = slot_internal->loader;
@@ -228,11 +228,6 @@
     AF_StyleClass          style_class;
     AF_WritingSystemClass  writing_system_class;
 
-
-    if ( !size )
-      return FT_THROW( Invalid_Size_Handle );
-
-    size_internal = size->internal;
 
     FT_ZERO( &scaler );
 

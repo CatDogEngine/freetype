@@ -4,7 +4,7 @@
  *
  *   Arithmetic computations (body).
  *
- * Copyright (C) 1996-2022 by
+ * Copyright (C) 1996-2023 by
  * David Turner, Robert Wilhelm, and Werner Lemberg.
  *
  * This file is part of the FreeType project, and may only be used,
@@ -1103,7 +1103,7 @@
     for ( i = 0; i < count; ++i )
       temp += (FT_Int64)s[i] * f[i];
 
-    return ( temp + 0x8000 ) >> 16;
+    return (FT_Int32)( ( temp + 0x8000 ) >> 16 );
 #else
     temp.hi = 0;
     temp.lo = 0;

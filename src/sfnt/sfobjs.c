@@ -4,7 +4,7 @@
  *
  *   SFNT object management (base).
  *
- * Copyright (C) 1996-2022 by
+ * Copyright (C) 1996-2023 by
  * David Turner, Robert Wilhelm, and Werner Lemberg.
  *
  * This file is part of the FreeType project, and may only be used,
@@ -1221,7 +1221,7 @@
 
         if ( count > 0 )
         {
-          FT_Memory        memory   = face->root.stream->memory;
+          FT_Memory        memory   = face->root.memory;
           FT_UShort        em_size  = face->header.Units_Per_EM;
           FT_Short         avgwidth = face->os2.xAvgCharWidth;
           FT_Size_Metrics  metrics;
